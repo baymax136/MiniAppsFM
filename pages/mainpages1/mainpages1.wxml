@@ -1,0 +1,15 @@
+<!--pages/mainpages1/mainpages1.wxml-->
+<view class="container">
+  <view class="main">
+    <view class="Bigtitle">我的收藏</view>
+    <view wx:for="{{num}}" wx:key = "index">
+      <view class="mainlist" bindtap='gotoPage' id = "{{index+1}}" >
+        <image class="mainimg" src="http://cdn.fuhuideng.com/head_image/{{list[(index+1) +'val8']}}"></image>
+        <view class="maintext">
+          <text>{{list[(index+1) +'val3']}}\n</text>
+          <text class="maintimetext">{{list[(index+1) +'val6']}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

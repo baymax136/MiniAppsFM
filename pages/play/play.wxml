@@ -1,0 +1,122 @@
+<!--pages/play/play.wxml-->
+<view class="container">
+  <!-- style="background:{{showLike?'#4B99D1':'#DA5F63'}};" -->
+  <view class="top" animation="{{slide_show1}}">
+    <view class="title">
+      {{title}}
+    </view>
+    <view class="author">
+      作者/{{writer}}
+    </view>
+    <view class="singer">
+      朗读/{{speaker}}
+    </view>
+
+    <!-- 进度条 -->
+    <view class="body-view">
+      <slider class="Audioslider" value="{{sliderValue}}" bindchange="bindchange" catchtap="onItemClick" bindchanging="changing" color="rgba(225,225,225,.3)" selected-color="#FFFFFF" block-size="12" />
+    </view>
+
+    <!-- <view class="footer"> -->
+    <view class="progress-bar">
+      <view>{{time}}</view>
+      <view>{{showTime}}</view>
+    </view>
+    <!-- </view> -->
+
+
+    <!-- 操作按钮 -->
+    <view class="btn-group">
+      <view class="prev" bindtap='prev'>
+        <image class="previmage" src="http://cdn.fuhuideng.com/play/play_btn_prev@3x.png?i=1"></image>
+      </view>
+      <view class="play {{showView?'show':'hide'}}" bindtap='play'>
+        <image class="playimage" src="http://cdn.fuhuideng.com/play/play_btn_c@2x.png?i=1"></image>
+      </view>
+      <view class="pause {{showView?'hide':'show'}}" bindtap='pause'>
+        <image class="pauseimage" src="http://cdn.fuhuideng.com/play/play_btn_p@3x.png?i=1"></image>
+      </view>
+      <view class="next" bindtap='next'>
+        <image class="nextimage" src="http://cdn.fuhuideng.com/play/play_btn_next@3x.png?i=1"></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="main">
+    <view class="btn-group btn-group-main">
+      <view class="like {{showLike?'show':'hide'}}" bindtap='like'>
+        <image class="likeimage" src="http://cdn.fuhuideng.com/play/play_btn_o@3x.png?i=1"></image>
+        <text>\n收藏</text>
+      </view>
+      <view class="likeclick {{showLike?'hide':'show'}}" bindtap='likeclick'>
+        <image class="likeclickimage" src="http://cdn.fuhuideng.com/play/play_btn_d@3x.png?i=1"></image>
+        <text>\n已收藏</text>
+      </view>
+
+      <view class="list {{showLike?'show':'hide'}}" bindtap='showlist'>
+        <image class="listimage" src="http://cdn.fuhuideng.com/play/play_btn_n@3x.png?i=1"></image>
+        <text>\n播放列表</text>
+      </view>
+      <view class="listlike {{showLike?'hide':'show'}}" bindtap='showlist'>
+        <image class="listimage" src="http://cdn.fuhuideng.com/play/play_btn_selected_n@3x.png?i=1"></image>
+        <text>\n播放列表</text>
+      </view>
+      <view class="reward" bindtap='seereward'>
+        <image class="rewardimage" src="http://cdn.fuhuideng.com/play/play_btn_zs@3x.png?i=1"></image>
+        <text>\n赞赏一下</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="closelists {{showList?'show':'hide'}}" bindtap='hidelist'>
+
+  </view>
+
+  <view class="lists" animation="{{slide_up1}}" bindtap='hidelist'>
+    <image animation="{{slide_left1}}" class="listsbtnimage {{showLike?'show':'hide'}}" src="http://cdn.fuhuideng.com/play/play_btn_s@3x.png?i=1" bindtap='hidelist'></image>
+    <image animation="{{slide_left1}}" class="listsbtnimage {{showLike?'hide':'show'}}" src="http://cdn.fuhuideng.com/play/play_btn_selected_s@3x.png" bindtap='hidelist'></image>
+    <scroll-view class="musiclist" scroll-y="true">
+      <view wx:for="{{num}}" wx:key="key">
+        <view class="mainlist" bindtap='taplist' id="{{list[(index+1) +'val2']}}">
+          <image class="mainimg" src="http://cdn.fuhuideng.com/head_image/{{list[(index+1) +'val8']}}"></image>
+          <view class="maintext">
+            <text>{{list[(index+1) +'val3']}}\n</text>
+            <text class="maintimetext">{{list[(index+1) +'val6']}}</text>
+          </view>
+        </view>
+        <view class="divLine"></view>
+      </view>
+    </scroll-view>
+  </view>
+
+
+  <!--  -->
+  <view class="TapReward {{showrewardList?'show':'hide'}}">
+    <view class="rewardclose {{showrewardList?'show':'hide'}}" bindtap='closelist'>
+    </view>
+    <view class="rewardlisttext">赞赏一下</view>
+    <scroll-view class="rewardList" scroll-y="true">
+      <view class="rewardListFlex">
+        <button class="rewardListTotal" bindtap='tapreward' id="2">2<text class="rewardListTotalYuan">元</text></button>
+        <button class="rewardListTotal" bindtap='tapreward' id="5">5<text class="rewardListTotalYuan">元</text></button>
+        <button class="rewardListTotal" bindtap='tapreward' id="10">10<text class="rewardListTotalYuan">元</text></button>
+      </view>
+      <view class="rewardListFlex">
+        <button class="rewardListTotal" bindtap='tapreward' id="20">20<text class="rewardListTotalYuan">元</text></button>
+        <button class="rewardListTotal" bindtap='tapreward' id="50">50<text class="rewardListTotalYuan">元</text></button>
+        <button class="rewardListTotal" bindtap='tapreward' id="100">100<text class="rewardListTotalYuan">元</text></button>
+      </view>
+      
+
+      <view class="rewardtext">请输入打赏金额</view>
+      <input type='digit' maxlength="10" class='rewardinput' placeholder='' bindinput="inputedit" adjust-position="true" value="{{moneyNum}}"/>
+
+      <button class="rewardZDYbutton" bindtap='tapreward' id="zdy">确认赞赏</button>
+
+
+    </scroll-view>
+  </view>
+
+
+
+</view>

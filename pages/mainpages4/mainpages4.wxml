@@ -1,0 +1,30 @@
+<!--pages/mainpages4/mainpages4.wxml-->
+<view class="container">
+  <view class="Bigtitle">设置</view>
+  <view class="btnlists">
+    <view class="listbtn" bindtap='gotoPage' id="1">
+      <text class="listname">编辑头像</text>
+      <image class="icon" src="http://cdn.fuhuideng.com/hs2.png"></image>
+    </view>
+    <view class="listbtn" bindtap='gotoPage' id="2">
+      <text class="listname">更改性别</text>
+      <image class="icon" src="http://cdn.fuhuideng.com/home/home_icon_Sex0@3x.png"></image>
+    </view>
+    <view class="listbtn" bindtap='gotoPage' id="3">
+      <text class="listname">服务条款</text>
+    </view>
+    <view class="listbtn" bindtap='gotoPage' id="4">
+      <text class="listname">版本说明</text>
+      <text class="listtext">体验版2.3.3</text>
+    </view>
+  </view>
+
+  <view class="avatarUrl {{showList?'show':'hide'}}">
+    <view class="avatarUrlclose {{showList?'show':'hide'}}" bindtap='closelist'>
+    </view>
+    <view class="avatarUrllisttext">头像选择</view>
+    <scroll-view class="avatarUrlList" scroll-y="true">
+      <image wx:for="{{num}}" wx:key="key" class="avatarUrlImg" src="http://cdn.fuhuideng.com/head_image/head_image{{index+1}}@3x.png" id="{{index+1}}" bindtap='getavatarUrl'></image>
+    </scroll-view>
+  </view>
+</view>

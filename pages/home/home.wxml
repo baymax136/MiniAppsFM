@@ -1,0 +1,43 @@
+<!--my.wxml-->
+<view class="container {{show?'show':'hide'}}">
+  <view class="top">
+    <view class="Bigtitle">精选</view>
+    <view class="topimg" bindtap='gotoPage' id = "23">
+      <view class="toptext">
+        <text>寂静老师带领冥想\n</text>
+        <text class="toptimetext">2019.10.17</text>
+      </view>
+      <image class="play_btn" src="http://cdn.fuhuideng.com/play/selected_play_btn_p@3x.png?i=1"></image>
+    </view>
+  </view>
+
+  <view class="main">
+    <view class="Bigtitle">往期聆听</view>
+    <view wx:for="{{num}}" wx:key = "index">
+      <view class="mainlist" bindtap='gotoPage' id = "{{index+1}}" >
+        <image class="mainimg" src="http://cdn.fuhuideng.com/head_image/{{list[(index+1) +'val8']}}"></image>
+        <view class="maintext">
+          <text>{{list[(index+1) +'val3']}}\n</text>
+          <text class="maintimetext">{{list[(index+1) +'val6']}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="backgroundAudio {{backgroundAudioplaying?'show':'hide'}}" bindtap='gotoPage' id="{{backgroundAudioid}}">
+    <image class="bgm blur" src="../../img/bgm.png"></image>
+    <image animation="{{attentionAnim2}}" class="backgroundimg" src="http://cdn.fuhuideng.com/head_image/{{backgroundAudioImg}}"></image>
+    
+    <view class="backgroundtext">
+      <text>{{backgroundAudioName}}\n</text>
+      <text class="backgroundtimetext">{{backgroundText}}</text>
+    </view>
+
+    <view class="nextbackgroundAudio">
+      <view class="nextbackgroundAudiotext1" animation="{{attentionAnim}}">|</view>
+      <view class="nextbackgroundAudiotext2" animation="{{attentionAnim1}}">|</view>
+      <view class="nextbackgroundAudiotext3" animation="{{attentionAnim}}">|</view>
+      <view class="nextbackgroundAudiotext4" animation="{{attentionAnim1}}">|</view>
+    </view>
+  </view>
+</view>

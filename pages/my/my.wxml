@@ -1,0 +1,50 @@
+<!--my.wxml-->
+<view class="container">
+  <!-- style="background:{{showLike?'#4B99D1':'#DA5F63'}};" -->
+  <view class="login {{login?'hide':'show'}}" bindtap='login'>
+    <view class="login_btn_view">
+      <button class="login_btn" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">授权登录</button>
+      <text class="login_text">\n\n登陆后可收藏聆听、查看收听历史等</text>
+    </view>
+    
+  </view>
+
+  <view class="top {{login?'show':'hide'}}" bindtap='gotoPage' id="4">
+    <image class="headimg" src="{{avatarUrl}}"></image>
+    <view class="user">
+      <text class="username">{{nickName}}\n</text>
+      <image class="sex" src="http://cdn.fuhuideng.com/home/home_icon_Sex{{gender}}@3x.png"></image>
+    </view>
+    <view class="userbtn">
+      <image class="sex" src="http://cdn.fuhuideng.com/home/home_icon_right@3x.png"></image>
+    </view>
+  </view>
+
+  <view class="main {{login?'show':'hide'}}">
+    <view class="btnlists">
+      <view class="listbtn" bindtap='gotoPage' id="1">
+        <image mode="aspectFit" class="icon" src="http://cdn.fuhuideng.com/home/home_icon_collect@3x.png?p=1"></image>
+        <text class="listname">我的收藏</text>
+        <text class="listtext">收藏过的聆听都在这里</text>
+      </view>
+      <view class="listbtn" bindtap='gotoPage' id="2">
+        <image mode="aspectFit" class="icon" src="http://cdn.fuhuideng.com/home/home_icon_record@3x.png?p=1"></image>
+        <text class="listname">收听历史记录</text>
+        <text class="listtext">继续聆听精彩内容</text>
+      </view>
+
+      <button class="listbtn_btn" open-type='feedback'>
+        <image mode="aspectFit" class="icon" src="http://cdn.fuhuideng.com/home/home_icon_opinion@3x.png?p=1"></image>
+        <text class="listname">意见反馈</text>
+        <text class="listtext">你的意见是我们努力的目标</text>
+      </button>
+
+      <view class="listbtn" bindtap='gotoPage' id="4">
+        <image mode="aspectFit" class="icon" src="http://cdn.fuhuideng.com/home/home_icon_sp@3x.png?p=1"></image>
+        <text class="listname">设置</text>
+        <text class="listtext">更多设置</text>
+      </view>
+    </view>
+  </view>
+
+</view>

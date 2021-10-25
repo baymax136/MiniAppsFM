@@ -1,0 +1,135 @@
+page {
+  position: fixed;
+  background: #F4F5F6;
+}
+
+
+.top {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 30vh;
+  background: #F4F5F6;
+}
+
+.main {
+  width: 100%;
+  height: 70vh;
+  background: #fff;
+}
+
+.headimg{
+  width: 200rpx;
+  height: 200rpx;
+  border-radius:50%;
+  /* margin: 70rpx 0rpx 0rpx 90rpx; */
+  margin-left: 90rpx;
+}
+
+.user{
+  margin-right: 200rpx;
+  margin-left: 40rpx;
+  font-size: 40rpx;
+}
+
+.sex{
+  width: 50rpx;
+  height: 50rpx;
+  border-radius:50%;
+}
+
+.btnlists{
+  padding-top: 80rpx;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.listbtn{
+  display: flex;
+  align-items: center;
+  padding-bottom: 60rpx;
+}
+.listbtn_btn{
+  width: 100%;
+  text-align: left;
+  display: flex;
+  padding-bottom: 60rpx;
+  font-size: 32rpx;
+}
+/* 去除button默认样式 */
+button::after {
+border: none;
+}
+button {
+background-color: transparent;
+padding-left: 0;
+padding-right: 0;
+line-height:inherit;
+}
+
+button {
+border-radius:0;
+}
+
+.icon{
+  width: 40rpx;
+  height: 40rpx;
+  /* background: #B7B7B7; */
+}
+
+.listname{
+  padding-left: 30rpx;
+  padding-right: 50rpx;
+  font-size: 35rpx;
+}
+
+.listtext{
+  position: fixed;
+  right: 0;
+  font-size: 24rpx;
+  color: #B7B7B7;
+  padding-right: 10%;
+}
+
+.sex{
+  margin-top: 17rpx;
+}
+
+.login{
+  position: fixed;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-top: -100rpx;
+}
+
+.login_btn_view{
+  position: fixed;
+  width: 100%;
+  text-align: center;
+}
+
+
+.login_btn{
+  width: 300rpx;
+  height: 300rpx;
+  background: #00af19;
+  color: white;
+  line-height: 300rpx;
+  border-radius:50%;
+}
+
+
+
+/* 显示隐藏控制 */
+.hide {
+  display: none;
+}
+
+.show {
+  display: flex;
+}
